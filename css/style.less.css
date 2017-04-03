@@ -1,0 +1,134 @@
+@import (less) "mixin.less.css";
+@import (css) "reset.css";
+@import (css) "fonts.css";
+
+.image{
+	.center-block();
+		width: 940px;
+	   	height:400px;
+	   	background-image: -moz-linear-gradient(top, rgba(255,0,0,0), rgba(0,0,0,1)), url('img/velo.png');
+	.text
+	{
+		padding-top: 270px;
+	  	padding-left:20px;
+	    width :550px;
+	    height : 200px;
+	    font-size:30px;
+	    color:white;
+	    line-height: 30px;
+	    &:before{
+	    	content: '200km avec un @RideCannondale alu ça change de mon vieux #velo #acier @Decathlon!';
+	    }
+	}
+}
+
+#button{
+	position: relative;
+	display: inline-block;
+	.borderRadius(20px);
+	height: 250px;
+	width: 300px;
+	margin-top: 10px;
+	font-size:20px;
+	line-height: 30px;
+}
+
+.container-fluid {
+    height: 400px;
+    width: 1000px;
+}
+
+input ~ div {
+	.borderRadius(20px);
+	position: absolute;
+	background-color: #E4E4E4;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	padding-left:20px;
+
+}
+
+div[data-id="2"] input:hover ~ div {
+	background-color: #d34836;
+	color: white;
+}
+div[data-id="1"] input:hover ~ div {
+	background-color: #4099FF;
+	color: white;
+}
+div[data-id="0"] input:hover ~ div {
+	background-color: #9b6954;
+	color: white;
+}
+div[data-id="2"] input:checked ~ div {
+	background-color: #d34836;
+}
+div[data-id="1"] input:checked ~ div {
+	background-color: #4099FF;
+}
+div[data-id="0"] input:checked ~ div {
+	background-color: #9b6954;
+}
+
+p{
+	padding-top: 40px;
+}
+
+div{
+	&[data-id="2"]
+	{
+		&:before 
+		{	
+			position:absolute;
+			margin-top: 35px;
+			margin-left: 20px;
+			.fa;
+			content:'\f0d5' ;
+		}	
+	}
+
+	&[data-id="1"]
+	{
+		&:before {
+			position:absolute;
+			margin-top: 35px;
+			margin-left: 20px;
+			.fa;
+			content: '\f099';
+		}
+	}
+	&[data-id="0"]
+	{
+		&:before {
+			position:absolute;
+			margin-top: 35px;
+			margin-left: 20px;
+			.fa;
+			content: '\f16d';
+		}
+	}
+}
+
+input {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0;
+}
+
+input[type="checkbox"] + label::before{
+	position: absolute;
+    content:"";
+    margin-left: 260px;
+    margin-top: 20px;
+    width:12px;
+    height:12px;
+    background:#444;
+    border-radius:12px;
+}
+input[type="checkbox"]:checked + label::before{
+    background:limegreen;
+}
